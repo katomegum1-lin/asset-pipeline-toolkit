@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>模型规范检查报告</title>
+<style>
+body{font-family:"Microsoft YaHei",sans-serif;margin:32px;color:#222;background:#fafafa}
+h1{font-size:22px;margin-bottom:4px}
+.meta{color:#666;font-size:13px;margin-bottom:18px}
+.cards{display:flex;gap:14px;margin-bottom:22px}
+.card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 22px;min-width:110px}
+.card b{display:block;font-size:26px;line-height:1.2}
+.card span{font-size:12px;color:#777}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:13px}
+th{background:#37474f;color:#fff;padding:9px 10px;text-align:left;font-weight:500}
+td{border-bottom:1px solid #eee;padding:8px 10px;vertical-align:top}
+td.detail{color:#666}
+tr:hover td{background:#f5f9fc}
+</style></head><body>
+<h1>模型规范检查报告</h1>
+<div class="meta">检查对象 10 个 · 耗时 0.44 秒 · 生成于 2026-11-20 11:54:40</div>
+<div class="cards">
+<div class="card"><b style="color:#d32f2f">8</b><span>错误 ERROR</span></div>
+<div class="card"><b style="color:#ef6c00">5</b><span>警告 WARN</span></div>
+<div class="card"><b style="color:#1565c0">3</b><span>提示 INFO</span></div>
+</div>
+<table><tr><th>对象</th><th>检查项</th><th>级别</th><th>问题</th><th>说明</th></tr>
+<tr><td>SM_BadTopology</td><td>UV</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>没有任何 UV 图层</td><td class="detail">进引擎后无法贴图，必须先展 UV</td></tr><tr><td>SM_BadTopology</td><td>几何</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>非流形边 1 条</td><td class="detail">边被 3 个以上面共享，布尔/合并残留，进引擎后法线与碰撞会异常</td></tr><tr><td>SM_BadTopology</td><td>几何</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>退化面 1 个</td><td class="detail">面积为 0，会导致法线计算错误和黑面</td></tr><tr><td>SM_EmptyMatSlot</td><td>材质</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>空材质槽 索引 0</td><td class="detail">进引擎后会显示为默认白模，需指定材质或删除空槽</td></tr><tr><td>SM_NegativeScale</td><td>变换</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>存在负缩放 (-1.000, 1.000, 1.000)</td><td class="detail">负缩放会让法线反向、碰撞体翻转，Ctrl+A 应用缩放后再检查</td></tr><tr><td>SM_NoUV</td><td>UV</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>没有任何 UV 图层</td><td class="detail">进引擎后无法贴图，必须先展 UV</td></tr><tr><td>SM_UVOverlap</td><td>UV</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>疑似 UV 重叠 1 处</td><td class="detail">例如面 0；重叠会导致烘焙串色，镜像 UV 属正常情况需人工确认</td></tr><tr><td>立方体 01</td><td>命名</td><td style="color:#d32f2f;font-weight:600">ERROR</td><td>含非法字符 4 处（ 体方立）</td><td class="detail">UE 只接受字母/数字/下划线；中文与空格在导入时会被自动替换成下划线，导致引用断开</td></tr><tr><td>SM_BadTopology</td><td>几何</td><td style="color:#ef6c00;font-weight:600">WARN</td><td>游离顶点 1 个</td><td class="detail">不影响渲染但会增大文件，建议删除</td></tr><tr><td>SM_ScaledNotApplied</td><td>变换</td><td style="color:#ef6c00;font-weight:600">WARN</td><td>缩放未应用 (2.000, 2.000, 2.000)</td><td class="detail">Ctrl+A → 缩放；否则引擎里的尺寸与 UV 都会按比例失真</td></tr><tr><td>SM_TooManySlots</td><td>材质</td><td style="color:#ef6c00;font-weight:600">WARN</td><td>材质槽 5 个，超过上限 4</td><td class="detail">每个材质槽在引擎里是一次额外的 draw call，建议合并贴图</td></tr><tr><td>SM_TooManyTris</td><td>面数</td><td style="color:#ef6c00;font-weight:600">WARN</td><td>三角面 122880 超过上限 50000</td><td class="detail">超出 146%，考虑减面或拆分成多个资产</td></tr><tr><td>立方体 01</td><td>命名</td><td style="color:#ef6c00;font-weight:600">WARN</td><td>缺少规范前缀</td><td class="detail">应以 SM_ 开头，例如 SM_立方体 01</td></tr><tr><td>SM_BadTopology</td><td>几何</td><td style="color:#1565c0;font-weight:600">INFO</td><td>开放边界边 9 条</td><td class="detail">若模型本应封闭则需补面；若是布料/外壳类可忽略</td></tr><tr><td>SM_BadTopology</td><td>法线</td><td style="color:#1565c0;font-weight:600">INFO</td><td>开放网格（边界边 9 条），已跳过朝向自动判断</td><td class="detail">半成品/布料属正常；若应为封闭实体请补面后再检查</td></tr><tr><td>SM_TooManyTris</td><td>UV</td><td style="color:#1565c0;font-weight:600">INFO</td><td>面数 61440 超过重叠检测上限，已跳过</td><td class="detail">把 UV_OVERLAP_MAX_FACES 调大后重跑，或先拆分资产</td></tr>
+</table></body></html>

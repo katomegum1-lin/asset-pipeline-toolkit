@@ -1,0 +1,22 @@
+﻿对象,检查项,级别,问题,说明
+SM_Lamina,UV,ERROR,疑似 UV 重叠 1 处,例如面 0；重叠会导致烘焙串色，镜像 UV 属正常需人工确认
+SM_Lamina,几何,ERROR,重合面（Lamina）1 组,例如面 0/1 完全重叠；会导致 z-fighting 与烘焙错误，删掉多余面
+SM_LaminaFaces,UV,ERROR,没有任何 UV,UV 集 1 个、UV 坐标 0 个；进引擎后无法贴图，必须重新展开
+SM_LaminaFaces,几何,ERROR,重合面（Lamina）1 组,例如面 0/1 完全重叠；会导致 z-fighting 与烘焙错误，删掉多余面
+SM_LaminaFaces,材质,ERROR,没有指定任何材质,进引擎后显示默认白模
+SM_NegativeScale,变换,ERROR,"存在负缩放 (-1.000, 1.000, 1.000)",负缩放让法线反向、碰撞体翻转，冻结变换后重检
+SM_NoUV,UV,ERROR,没有任何 UV,UV 集 1 个、UV 坐标 0 个；进引擎后无法贴图，必须重新展开
+SM_NonManifold,UV,ERROR,没有任何 UV,UV 集 1 个、UV 坐标 0 个；进引擎后无法贴图，必须重新展开
+SM_NonManifold,几何,ERROR,非流形边 1 条,布尔/合并残留，进引擎后法线与碰撞异常；清理后重检
+SM_NonManifold,材质,ERROR,没有指定任何材质,进引擎后显示默认白模
+SM_NonManifold,法线,ERROR,疑似整体反向（66% 的面朝内）,全选物体 网格显示 → 反转法线；负缩放也会导致此问题
+SM_UVOverlap,UV,ERROR,疑似 UV 重叠 1 处,例如面 0；重叠会导致烘焙串色，镜像 UV 属正常需人工确认
+BadName,命名,WARN,缺少规范前缀,应以 SM_ 开头，例如 SM_BadName
+SM_Lamina,几何,WARN,构造历史未清理（2 个节点）,"例如 groupId2, initialShadingGroup；导出前执行 修改 → 冻结变换 + 删除历史"
+SM_NoUV,几何,WARN,构造历史未清理（1 个节点）,例如 polyMapDel1；导出前执行 修改 → 冻结变换 + 删除历史
+SM_ScaledNotFrozen,变换,WARN,"缩放未冻结 (2.000, 2.000, 2.000)",修改 → 冻结变换；否则引擎尺寸与 UV 按比例失真
+SM_TooManyTris,UV,WARN,179 个 UV 坐标跑出 0~1,"范围 U[0.00,1.00] V[0.00,1.00]，平铺贴图可忽略"
+SM_TooManyTris,面数,WARN,三角面 64440 超过上限 50000,超出 29%，考虑减面或拆分
+SM_UVOverlap,几何,WARN,构造历史未清理（2 个节点）,"例如 groupId1, initialShadingGroup；导出前执行 修改 → 冻结变换 + 删除历史"
+SM_WithHistory,几何,WARN,构造历史未清理（1 个节点）,例如 polyCube1；导出前执行 修改 → 冻结变换 + 删除历史
+SM_TooManyTris,UV,INFO,面数 32400 超过重叠检测上限，已跳过,调大 UV_OVERLAP_MAX_FACES 后重跑，或先拆分资产

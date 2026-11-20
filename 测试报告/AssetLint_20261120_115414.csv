@@ -1,0 +1,16 @@
+﻿对象,检查项,级别,问题,说明
+SM_BadTopology,UV,ERROR,没有任何 UV 图层,进引擎后无法贴图，必须先展 UV
+SM_BadTopology,几何,ERROR,非流形边 1 条,边被 3 个以上面共享，布尔/合并残留，进引擎后法线与碰撞会异常
+SM_BadTopology,几何,ERROR,退化面 1 个,面积为 0，会导致法线计算错误和黑面
+SM_BadTopology,法线,ERROR,疑似整体反向（75% 的面朝内）,在编辑模式全选后 Shift+N 统一法线；负缩放也会导致此问题
+SM_EmptyMatSlot,材质,ERROR,空材质槽 索引 0,进引擎后会显示为默认白模，需指定材质或删除空槽
+SM_NegativeScale,变换,ERROR,"存在负缩放 (-1.000, 1.000, 1.000)",负缩放会让法线反向、碰撞体翻转，Ctrl+A 应用缩放后再检查
+SM_NoUV,UV,ERROR,没有任何 UV 图层,进引擎后无法贴图，必须先展 UV
+SM_TooManyTris,UV,ERROR,疑似 UV 重叠 20 处,"例如面 2, 18, 19, 20, 33, 34；重叠会导致烘焙串色，镜像 UV 属正常情况需人工确认"
+SM_UVOverlap,UV,ERROR,疑似 UV 重叠 1 处,例如面 0；重叠会导致烘焙串色，镜像 UV 属正常情况需人工确认
+立方体 01,命名,ERROR,含非法字符： 体方立,UE 只接受字母/数字/下划线，中文与空格在导入时会被自动替换成下划线
+SM_BadTopology,几何,WARN,游离顶点 1 个,不影响渲染但会增大文件，建议删除
+SM_ScaledNotApplied,变换,WARN,"缩放未应用 (2.000, 2.000, 2.000)",Ctrl+A → 缩放；否则引擎里的尺寸与 UV 都会按比例失真
+SM_TooManySlots,材质,WARN,材质槽 5 个，超过上限 4,每个材质槽在引擎里是一次额外的 draw call，建议合并贴图
+立方体 01,命名,WARN,缺少规范前缀,应以 SM_ 开头，例如 SM_立方体 01
+SM_BadTopology,几何,INFO,开放边界边 9 条,若模型本应封闭则需补面；若是布料/外壳类可忽略

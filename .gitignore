@@ -1,0 +1,15 @@
+# Python 缓存（Blender/Maya 运行脚本时自动生成）
+__pycache__/
+*.pyc
+*.pyo
+
+# 工具运行时生成
+_AssetLint/
+_UEExport/
+
+# 测试产出的临时场景
+*.blend1
+*.ma.swatches
+
+# 个人作品集准备材料（简历写法 / 面试讲法），不公开
+测试报告/真实模型/作品集素材说明.md
